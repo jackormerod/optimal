@@ -29,3 +29,14 @@ body{overflow:hidden}.app{height:calc(100dvh - var(--nav-height) - var(--add-rai
 /* Keep layout within the device without disabling accessibility zoom. */
 html,body,#app{width:100%;max-width:100%;overflow-x:clip}body{touch-action:manipulation}.app{width:100%;overflow-x:hidden}.app>*{min-width:0}.mini-ring{isolation:isolate;overflow:hidden;line-height:1}.mini-ring b{display:block;position:relative;line-height:1}.recommend-summary{display:block;width:100%;padding:0;text-align:left;background:none;border:0;min-height:44px}.recommend-summary h2{margin:5px 0}.recommend-summary .recommend-totals{font-size:12px}.panel .toggle input{width:20px;min-height:20px}.panel [hidden]{display:none!important}
 .mini-ring{background:none!important}.mini-ring:before{display:none}.mini-ring svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* One viewport-sized shell; navigation has an explicit centred 50px row.
+   The home-indicator inset is separate, not part of the visible button bar. */
+:root{--nav-height:50px;--bottom-safe:env(safe-area-inset-bottom,0px)}
+#app:has(.bottom){position:fixed;inset:0;height:auto;overflow:hidden}
+#app:has(.bottom) .app{height:calc(100% - var(--nav-height) - var(--bottom-safe));min-height:0}
+.bottom{position:absolute;bottom:0;height:calc(var(--nav-height) + var(--bottom-safe));padding:0 0 var(--bottom-safe);border:0;grid-template-rows:var(--nav-height);align-items:center;background:linear-gradient(to bottom,#0d110f 0 var(--nav-height),var(--bg) var(--nav-height) 100%);backdrop-filter:none}
+.nav{height:var(--nav-height);min-height:44px;padding:0;margin:0;gap:3px;line-height:12px;align-self:center;justify-content:center}
+.nav svg{display:block;width:20px;height:20px}.nav span{display:block;line-height:12px}
+.plus{position:absolute;bottom:calc(var(--nav-height) + var(--bottom-safe) + 8px);display:grid;place-items:center;padding:0;font-size:32.4px;line-height:1;font-family:Arial,sans-serif}
+html,body,.app,.panel{scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar,.app::-webkit-scrollbar,.panel::-webkit-scrollbar{display:none;width:0;height:0}
