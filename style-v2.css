@@ -6,37 +6,37 @@
 .field input,.field textarea,.field select{font-size:16px}
 /* Profile setup has no bottom navigation: use the whole page, not the app control rail. */
 body:has(#profile-form){overflow-y:auto;overflow-x:clip}
-.app:has(#profile-form){width:100%;max-width:480px;height:auto;min-height:100svh;min-height:100dvh;overflow:visible;overscroll-behavior:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+
 #profile-form,#profile-form .field{width:100%;min-width:0;max-width:100%}
 #profile-form input,#profile-form select,#profile-form textarea{box-sizing:border-box;min-width:0;min-inline-size:0;width:100%;max-width:100%;max-inline-size:100%}
 #profile-form input[type=date]{-webkit-appearance:none;appearance:none;display:block;min-height:48px}
 #profile-form input[type=date]::-webkit-date-and-time-value{min-width:0;text-align:left}
 .nutrition-score.unavailable{color:#69746c;font-size:23px;font-weight:400}
 /* Shared visual system: a reserved control rail keeps floating controls off content. */
-:root{--surface:#121613;--line:#252b27;--muted:#939d96;--nav-height:56px;--add-rail:0px}
-body{overflow:hidden}.app{height:calc(100dvh - var(--nav-height) - var(--add-rail) - env(safe-area-inset-bottom));min-height:0;overflow:auto;overscroll-behavior:contain;padding-bottom:80px;scroll-padding:20px}
+:root{--surface:#121613;--line:#252b27;--muted:#939d96}
+body{overflow:hidden}
 .top{align-items:center;margin-bottom:10px}.word{font-size:13px;letter-spacing:.21em}.date-button b{font-size:15px}.date-button small{font-size:11px}
 .wellness{grid-template-columns:144px minmax(0,1fr);gap:19px;padding:8px 0 22px}.overall-ring{width:142px}.overall-ring:before{inset:9px}.overall-value{font-size:46px;font-variant-numeric:tabular-nums}.interpret{font-size:21px;letter-spacing:-.4px;line-height:1.18}.coverage{line-height:1.5}
 .unavailable .overall-value,.mini-ring.unavailable b{color:#69746c;font-weight:400;letter-spacing:0}.unavailable .overall-value{font-size:30px}.mini-ring.unavailable b{font-size:15px}.nutrition-score{color:#cdd5ce}
 .action{background:var(--surface);border-radius:18px;padding:15px;margin-bottom:21px}.action h2{font-size:17px;letter-spacing:-.25px}.action p{font-size:12px;line-height:1.5}.action .projected{font-size:11px}.recommend-actions{gap:2px 8px;margin-top:10px}.recommend-actions button{font-size:12px;border-radius:11px;min-height:44px;text-align:center}.recommend-actions button:nth-child(n+3){border:0;background:transparent;color:var(--muted);padding:6px 2px}.recommend-actions button:nth-child(2){background:#222a24;border:0;color:#dbe2dc}
 .section-title{font-size:19px}.metrics{gap:6px}.mini-ring{width:64px}.mini{min-height:92px}.mini small{font-size:11px}.essentials{padding-top:13px}.essential strong{font-size:14px}.collapsed summary{font-size:14px}
-.bottom{height:calc(var(--nav-height) + env(safe-area-inset-bottom));background:#0d110f;border-color:#232a25}.bottom:before{display:none}.nav{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:10px;min-width:44px;min-height:44px;position:relative}.nav.active{color:#c4e0cb}.nav svg{flex:none}.plus{width:48px;height:48px;bottom:calc(var(--nav-height) + 8px + env(safe-area-inset-bottom));box-shadow:0 4px 20px #0006;font-size:27px}
+
 .profile-group{padding:18px 0;border-bottom:1px solid var(--line)}.profile-group h2,.chart-group{font-size:15px;letter-spacing:.01em}.profile-group p{font-size:13px;color:var(--muted)}.profile-group .secondary{width:auto;min-width:140px;min-height:44px;text-align:left;background:var(--surface);padding:10px 14px}.profile-group .field{margin-bottom:0}.card{border:0;background:var(--surface)}
 .insight-periods{display:grid;grid-template-columns:repeat(3,1fr);position:sticky;top:-1px;z-index:2;background:var(--bg);padding:10px 0;margin-top:8px}.insight-periods button[aria-pressed=true]{background:#d5e5d9;color:#102017;border-color:transparent;font-weight:650}.chart-group{margin:24px 0 8px;color:#b5c0b8}.trend{margin:12px 0 22px}.trend h2{font-size:14px}.sparse-trend summary{font-size:13px}.sparse-trend summary span{font-size:11px}.micro-row{padding:4px 0}.micro-row summary{font-size:14px}.micro-row p{line-height:1.6}.micro-row summary span{font-size:12px}
 .sheet{height:var(--visible-height,100dvh);top:var(--visible-top,0px);bottom:auto}.panel{max-height:calc(var(--visible-height,100dvh) - 18px);padding:12px 18px calc(20px + env(safe-area-inset-bottom));scroll-padding:20px}.panel h2{font-size:22px;letter-spacing:-.4px}.panel p{font-size:13px;line-height:1.5}.panel .secondary{min-height:44px}.panel .field{margin:12px 0}.panel input,.panel textarea,.panel select{min-width:0;max-width:100%}.panel form,.flow-actions>*{min-width:0}.panel button{overflow-wrap:anywhere}.flow-progress{display:flex;gap:8px;font-size:11px;color:var(--muted);margin:0 0 14px}.flow-progress b{color:#c4e0cb}
-@media(max-width:350px){.wellness{grid-template-columns:122px minmax(0,1fr);gap:14px}.overall-ring{width:120px}.overall-value{font-size:40px}.interpret{font-size:18px}.coverage{font-size:12px}.mini-ring{width:58px}.recommend-actions button{font-size:11px}.app{padding-left:14px;padding-right:14px}.action{padding:13px}.panel{padding-left:14px;padding-right:14px}}
+@media(max-width:350px){.wellness{grid-template-columns:122px minmax(0,1fr);gap:14px}.overall-ring{width:120px}.overall-value{font-size:40px}.interpret{font-size:18px}.coverage{font-size:12px}.mini-ring{width:58px}.recommend-actions button{font-size:11px}.action{padding:13px}.panel{padding-left:14px;padding-right:14px}}
 
 /* Keep layout within the device without disabling accessibility zoom. */
-html,body,#app{width:100%;max-width:100%;overflow-x:clip}body{touch-action:manipulation}.app{width:100%;overflow-x:hidden}.app>*{min-width:0}.mini-ring{isolation:isolate;overflow:hidden;line-height:1}.mini-ring b{display:block;position:relative;line-height:1}.recommend-summary{display:block;width:100%;padding:0;text-align:left;background:none;border:0;min-height:44px}.recommend-summary h2{margin:5px 0}.recommend-summary .recommend-totals{font-size:12px}.panel .toggle input{width:20px;min-height:20px}.panel [hidden]{display:none!important}
+html,body,#app{width:100%;max-width:100%;overflow-x:clip}body{touch-action:manipulation}.app>*{min-width:0}.mini-ring{isolation:isolate;overflow:hidden;line-height:1}.mini-ring b{display:block;position:relative;line-height:1}.recommend-summary{display:block;width:100%;padding:0;text-align:left;background:none;border:0;min-height:44px}.recommend-summary h2{margin:5px 0}.recommend-summary .recommend-totals{font-size:12px}.panel .toggle input{width:20px;min-height:20px}.panel [hidden]{display:none!important}
 .mini-ring{background:none!important}.mini-ring:before{display:none}.mini-ring svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 /* One viewport-sized shell; navigation has an explicit centred 50px row.
    The home-indicator inset is separate, not part of the visible button bar. */
-:root{--nav-height:50px;--bottom-safe:env(safe-area-inset-bottom,0px)}
-#app:has(.bottom){position:fixed;inset:0;height:auto;overflow:hidden}
-#app:has(.bottom) .app{height:calc(100% - var(--nav-height) - var(--bottom-safe));min-height:0}
-.bottom{position:absolute;bottom:0;height:calc(var(--nav-height) + var(--bottom-safe));padding:0 0 var(--bottom-safe);border:0;grid-template-rows:var(--nav-height);align-items:center;background:linear-gradient(to bottom,#0d110f 0 var(--nav-height),var(--bg) var(--nav-height) 100%);backdrop-filter:none}
-.nav{height:var(--nav-height);min-height:44px;padding:0;margin:0;gap:3px;line-height:12px;align-self:center;justify-content:center}
-.nav svg{display:block;width:20px;height:20px}.nav span{display:block;line-height:12px}
-.plus{position:absolute;bottom:calc(var(--nav-height) + var(--bottom-safe) + 8px);display:grid;place-items:center;padding:0;font-size:32.4px;line-height:1;font-family:Arial,sans-serif}
+
+
+#app:has(.bottom) 
+
+
+
+
 html,body,.app,.panel{scrollbar-width:none}
 html::-webkit-scrollbar,body::-webkit-scrollbar,.app::-webkit-scrollbar,.panel::-webkit-scrollbar{display:none;width:0;height:0}
