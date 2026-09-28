@@ -118,5 +118,8 @@ async function initializeCloud(){if(db.storageError)return;let configured=false;
 initializeFlows();
 render();
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
+// Home-screen Safari can exclude a strip at the physical bottom from innerHeight.
+// Measure it rather than assuming the safe-area inset equals that strip.
+if(window.matchMedia?.('(display-mode: standalone)')?.matches){const fitScreen=()=>{const gap=Math.max(0,Math.min(120,window.screen.height-window.innerHeight));document.documentElement.style.setProperty('--standalone-screen-gap',`${gap}px`)};window.addEventListener('resize',fitScreen);fitScreen()}
 // Follow Safari's visual viewport when its keyboard reduces the sheet's usable area.
 if(window.visualViewport){const fit=()=>{document.documentElement.style.setProperty('--visible-height',window.visualViewport.height+'px');document.documentElement.style.setProperty('--visible-top',window.visualViewport.offsetTop+'px')};window.visualViewport.addEventListener('resize',fit);window.visualViewport.addEventListener('scroll',fit);fit()}

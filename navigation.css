@@ -1,10 +1,10 @@
 /* A fixed-height dock contains both its controls and home-indicator clearance. */
 :root{--bottom-dock-height:82px;--nav-surface:#0d110f}
 body{background:var(--nav-surface)}
-#app:has(.bottom){position:fixed;inset:0;overflow:hidden;background:var(--bg)}
-/* iOS home-screen PWAs can reserve the bottom safe area outside the CSS viewport.
-   Extend the shell into that reserved strip; the dock itself remains exactly 82px. */
-@media (display-mode: standalone){#app:has(.bottom){bottom:calc(0px - env(safe-area-inset-bottom, 0px))}}
+#app:has(.bottom){position:fixed;inset:0;overflow:visible;background:var(--bg)}
+/* The installed iPhone can expose a CSS viewport shorter than its screen.
+   Extend the shell by the measured difference, without enlarging the 82px dock. */
+@media (display-mode: standalone){#app:has(.bottom){bottom:calc(0px - var(--standalone-screen-gap, 0px))}}
 #app:has(.bottom) .app{width:100%;max-width:480px;height:calc(100% - var(--bottom-dock-height));min-height:0;margin-inline:auto;padding:calc(18px + env(safe-area-inset-top)) 20px 76px;overflow:auto;overflow-x:hidden;overscroll-behavior:contain;scroll-padding-bottom:76px}
 .bottom{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(480px,100%);height:var(--bottom-dock-height);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:var(--bottom-dock-height);align-items:center;background:var(--nav-surface);border-top:1px solid var(--line);z-index:4}
 .bottom:before{display:none}
