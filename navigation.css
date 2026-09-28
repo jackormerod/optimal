@@ -2,15 +2,12 @@
 :root{--bottom-dock-height:82px;--nav-surface:#0d110f}
 body{background:var(--nav-surface)}
 #app:has(.bottom){position:fixed;inset:0;overflow:visible;background:var(--bg)}
-/* The installed iPhone can expose a CSS viewport shorter than its screen.
-   Extend the shell by the measured difference, without enlarging the 82px dock. */
-@media (display-mode: standalone){#app:has(.bottom){bottom:calc(0px - var(--standalone-screen-gap, 0px))}}
 #app:has(.bottom) .app{width:100%;max-width:480px;height:calc(100% - var(--bottom-dock-height));min-height:0;margin-inline:auto;padding:calc(18px + env(safe-area-inset-top)) 20px 76px;overflow:auto;overflow-x:hidden;overscroll-behavior:contain;scroll-padding-bottom:76px}
-.bottom{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(480px,100%);height:var(--bottom-dock-height);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:var(--bottom-dock-height);align-items:center;background:var(--nav-surface);border-top:1px solid var(--line);z-index:4}
+.bottom{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(480px,100%);height:var(--bottom-dock-height);padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:var(--bottom-dock-height);align-items:center;background:var(--nav-surface);border-top:1px solid var(--line);z-index:4}
 .bottom:before{display:none}
 .nav{height:var(--bottom-dock-height);min-width:44px;min-height:44px;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:0;color:var(--muted);font-size:10px;line-height:12px}
 .nav.active{color:#c4e0cb;font-weight:650}.nav svg{display:block;flex:none;width:20px;height:20px}.nav span{display:block;line-height:12px}
-.plus{position:absolute;right:max(20px,calc((100vw - 440px)/2));bottom:calc(var(--bottom-dock-height) + 8px);width:48px;height:48px;padding:0;display:grid;place-items:center;border:0;border-radius:50%;background:var(--text);color:var(--bg);font:32.4px/1 Arial,sans-serif;box-shadow:0 4px 20px #0006;z-index:5}
+.plus{position:fixed;right:max(20px,calc((100vw - 440px)/2));bottom:calc(var(--bottom-dock-height) + 8px);width:48px;height:48px;padding:0;display:grid;place-items:center;border:0;border-radius:50%;background:var(--text);color:var(--bg);font:32.4px/1 Arial,sans-serif;box-shadow:0 4px 20px #0006;z-index:5}
 .essentials{padding-right:60px}
 .action:has(#weight) #weight{width:calc(100% - 60px)}
 .recommend-summary{position:relative;padding-right:20px}.recommend-chevron{position:absolute;right:0;top:50%;transform:translateY(-50%);color:var(--muted);font-size:20px}
